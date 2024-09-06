@@ -285,15 +285,17 @@
             pagingType: "full_numbers",
             dom: "<'row'<'col-sm-2'l><'col-sm-7 text-center'B><'col-sm-3'f>>tipr",
             ajax: {
-                url: 'user/get-list',
+                url: 'admin/parking/get-list',
                 type: "get"
             },
             columns: [
                 /*{data:'serial_no', name: 'serial_no'},*/
-                { data: 'name', name: 'name', orderable: false, searchable: false },
-                { data: 'email', name: 'email' },
-                { data: 'roles', name: 'roles' },
-                { data: 'permissions', name: 'permissions' },
+                { data: 'id', name: 'id', orderable: false, searchable: false },
+                { data: 'type', name: 'type' },
+                { data: 'entry', name: 'entry' },
+                { data: 'exit', name: 'exit' },
+                { data: 'status', name: 'status' },
+                { data: 'payment_status', name: 'payment_status' },
                 //only those have manage_user permission will get access
                 { data: 'action', name: 'action' }
 

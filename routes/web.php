@@ -82,8 +82,16 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => 'can:manage_parking'], function(){
 		Route::prefix('admin')->group(function () {
-			Route::get('/parking', [ParkingController::class,'index']);
-			Route::get('/parking/get-list', [ParkingController::class,'getParkingList']);
+
+			Route::prefix('parking')->group(function () {
+				Route::get('/', [ParkingController::class,'index']);
+				Route::get('/get-list', [ParkingController::class,'getParkingList']);
+				Route::post('/create', [ParkingController::class,'create']);
+				Route::get('/edit/{id}', [ParkingController::class,'edit']);
+				Route::post('/update', [ParkingController::class,'update']);
+				Route::get('/delete/{id}', [ParkingController::class,'delete']);
+				
+			});
 
 		});
 		
